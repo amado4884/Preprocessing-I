@@ -158,8 +158,27 @@ a {
   font-size: 1.5rem;
   line-height: 2rem;
 }
+h3.section-header,
+h4.subheader {
+  color: #2EB2AE;
+  font-weight: bold;
+}
+h4.subheader {
+  color: #30b22e;
+}
+h3.section-header {
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+  line-height: 2rem;
+  padding-top: 1.5rem;
+}
+hr {
+  color: #2EB2AE;
+  padding: 0;
+  margin: 0.2rem 0 0.75rem 0;
+}
 div.container {
-  width: 80rem;
+  width: 90rem;
   margin: 0 auto;
 }
 header.header nav.nav {
@@ -175,13 +194,13 @@ section.profile-info {
   display: flex;
 }
 section.profile-info div.image img {
-  width: 20rem;
-  height: 20rem;
+  width: 25rem;
+  height: 25rem;
   clip-path: circle(10rem at center);
 }
 section.profile-info div.info {
   background-color: #2EB2AE;
-  height: 20rem;
+  height: 25rem;
   color: white;
   margin-left: 1.5rem;
 }
@@ -200,7 +219,7 @@ section.contact-skills-work-experience {
 section.contact-skills-work-experience section.contact-skills-languages {
   display: flex;
   flex-direction: column;
-  width: 20rem;
+  width: 25rem;
 }
 section.contact-skills-work-experience section.contact-skills-languages div.info,
 section.contact-skills-work-experience section.contact-skills-languages div.skills,
@@ -209,9 +228,38 @@ section.contact-skills-work-experience section.contact-skills-languages div.lang
   flex-direction: column;
 }
 section.contact-skills-work-experience section.contact-skills-languages div.info {
-  padding-top: 2rem;
+  padding: 2rem 0;
   font-size: 1.5rem;
   line-height: 2rem;
+}
+section.contact-skills-work-experience section.contact-skills-languages div.info div {
+  margin-bottom: 2rem;
+}
+section.contact-skills-work-experience section.contact-skills-languages div.info div a {
+  text-decoration: none;
+  color: #30b22e;
+  font-weight: 400;
+}
+section.contact-skills-work-experience section.contact-skills-languages div.info div i.fa {
+  margin-right: 1rem;
+  color: #2EB2AE;
+}
+section.contact-skills-work-experience section.contact-skills-languages div.skills div {
+  padding-bottom: 1.5rem;
+}
+section.contact-skills-work-experience section.contact-skills-languages div.skills div p {
+  color: #30b22e;
+  font-weight: 400;
+  font-size: 1.75rem;
+  padding-bottom: 0.5rem;
+}
+section.contact-skills-work-experience section.contact-skills-languages div.skills div progress {
+  width: 100%;
+  height: 2rem;
+  background-color: #2EB2AE;
+  color: #30b22e;
+  border-radius: 0.2rem;
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.25) inset;
 }
 section.contact-skills-work-experience section.history {
   display: flex;
@@ -226,21 +274,6 @@ section.contact-skills-work-experience section.history span {
 }
 section.contact-skills-work-experience section.history span.italic {
   font-style: italic;
-}
-section.contact-skills-work-experience section.history hr {
-  color: #2EB2AE;
-  padding: 0;
-  margin: 0.2rem 0 0.75rem 0;
-}
-section.contact-skills-work-experience section.history h3.section-header,
-section.contact-skills-work-experience section.history h4.subheader {
-  color: #2EB2AE;
-  font-weight: bold;
-}
-section.contact-skills-work-experience section.history h3.section-header {
-  text-transform: uppercase;
-  line-height: 2rem;
-  padding-top: 1.5rem;
 }
 section.contact-skills-work-experience section.history h4 {
   margin: 1rem 0;

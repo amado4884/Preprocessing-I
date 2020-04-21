@@ -153,8 +153,12 @@ html {
 
 // -----------------------------------------------------------------------
 @primaryColor: #2EB2AE;
+@secondaryColor: #30b22e;
 @defaultTextSize: 1.5rem;
+@leftColumnWidth: 25rem;
 
+
+// ----------GENERAL STYLES----------------
 h1 {
 	font-size: 4rem;
 }
@@ -180,8 +184,33 @@ a {
 	;
 }
 
+h3.section-header,
+h4.subheader {
+	color: @primaryColor;
+	font-weight: bold;
+}
+
+h4.subheader {
+	color: @secondaryColor;
+}
+
+h3.section-header {
+	text-transform: uppercase;
+	letter-spacing: .3rem;
+	line-height: 2rem;
+	padding-top: 1.5rem;
+}
+
+hr {
+	color: @primaryColor;
+	padding: 0;
+	margin: .2rem 0 .75rem 0;
+}
+
+// ------------CUSTOM STYLES----------------
+
 div.container {
-	width: 80rem;
+	width: 90rem;
 	margin: 0 auto;
 }
 
@@ -203,15 +232,15 @@ section.profile-info {
 
 	div.image {
 		img {
-			width: 20rem;
-			height: 20rem;
+			width: @leftColumnWidth;
+			height: @leftColumnWidth;
 			clip-path: circle(10rem at center);
 		}
 	}
 
 	div.info {
 		background-color: @primaryColor;
-		height: 20rem;
+		height: @leftColumnWidth;
 		color: white;
 		margin-left: 1.5rem;
 
@@ -235,7 +264,8 @@ section.contact-skills-work-experience {
 	section.contact-skills-languages {
 		display: flex;
 		flex-direction: column;
-		width: 20rem;
+		width: @leftColumnWidth;
+
 
 		div.info,
 		div.skills,
@@ -245,21 +275,55 @@ section.contact-skills-work-experience {
 		}
 
 		div.info {
-			padding-top: 2rem;
+			padding: 2rem 0;
 			font-size: @defaultTextSize;
 			line-height: 2rem;
+
+			div {
+				margin-bottom: 2rem;
+
+				a {
+					text-decoration: none;
+					color: @secondaryColor;
+					font-weight: 400;
+				}
+
+				i.fa {
+					margin-right: 1rem;
+					color: @primaryColor
+				}
+			}
 		}
 
+		div.skills {
 
+			div {
+				padding-bottom: 1.5rem;
 
+				p {
+					color: @secondaryColor;
+					font-weight: 400;
+					font-size: 1.75rem;
+					padding-bottom: .5rem;
+				}
+
+				progress {
+					width: 100%;
+					height: 2rem;
+					background-color: @primaryColor;
+					color: @secondaryColor;
+					border-radius: .2rem;
+					box-shadow: 0 .2rem .5rem rgba(0, 0, 0, 0.25) inset;
+				}
+			}
+
+		}
 	}
 
 	section.history {
 		display: flex;
 		flex-direction: column;
 		padding-left: 1.5rem;
-
-		// General styling
 
 		*:not(div) {
 			padding-left: 1rem;
@@ -271,24 +335,6 @@ section.contact-skills-work-experience {
 
 		span.italic {
 			font-style: italic;
-		}
-
-		hr {
-			color: @primaryColor;
-			padding: 0;
-			margin: .2rem 0 .75rem 0;
-		}
-
-		h3.section-header,
-		h4.subheader {
-			color: @primaryColor;
-			font-weight: bold;
-		}
-
-		h3.section-header {
-			text-transform: uppercase;
-			line-height: 2rem;
-			padding-top: 1.5rem;
 		}
 
 		h4 {
@@ -317,8 +363,5 @@ section.contact-skills-work-experience {
 				}
 			}
 		}
-
-
-
 	}
 }
