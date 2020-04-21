@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amado Guerrero</title>
+  <link rel="stylesheet" href="Amado%20Guerrero_files/index.css">
+  <link href="Amado%20Guerrero_files/css2.css" rel="stylesheet">
+<link href="Amado%20Guerrero_files/modal.css" rel="stylesheet" id="__tmpStyle"></head><div id="twoseven-scripts" data-info="Scripts added by TwoSeven extension"><script type="text/javascript" id="__tmpScript-393987753" data-added-by-two-seven="1">(function() {
+    
+  window.twoseven = {
+    reportError: function reportError (tag, e, data) {
+  if (typeof data === 'string') {
+    data = {
+      message: data
+    }
+  }
+
+  Object.assign(data, {
+    error: {
+      message: e.message,
+      stack: e.stack
+    }
+  })
+  postToParent({
+    name,
+    tag,
+    action: 'report-error',
+    json: data
+  })
+}
+  }
+;
+  })();</script><script type="text/javascript" id="__tmpScript-736444013" data-added-by-two-seven="1">(function() {
+    
+  window.twosevenHmsToSecondsOnly = function(str) {
+      var p = str.split(':'),
+          s = 0, m = 1;
+
+      while (p.length > 0) {
+          s += m * parseInt(p.pop(), 10);
+          m *= 60;
+      }
+
+      return s;
+  }
+;
+  })();</script><script type="text/javascript" id="__tmpScript-33803536" data-added-by-two-seven="1">(function() {
+    window.twosevenExtLog = function twosevenExtLog (tag, msg, type) {
+  if (!msg) {
+    msg = tag
+    tag = undefined
+  }
+  let color = type || 'black'
+  if (type) {
+    switch (type) {
+      case 'success':
+        color = 'Green'
+        break
+      case 'info':
+        color = 'DodgerBlue'
+        break
+      case 'error':
+        color = 'Red'
+        break
+      case 'warning':
+        color = 'Orange'
+        break
+      default:
+        color = type
+    }
+  }
+  // AMO review process requires logging to be disabled
+  if (tag) {
+    console.log('%c' + tag + ': ' + msg, `color:${color}`)
+  } else {
+    console.log('%c' + msg, `color:${color}`)
+  }
+};
+  })();</script><script type="text/javascript" id="__tmpScript-164390729" data-added-by-two-seven="1">(function() {
+    
+  document.twosevenGET = function(url, callback) {
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = function() {
+      if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
+        if (xmlhttp.status == 200) {
+          callback(null, xmlhttp.responseText);
+        } else {
+          callback('something else other than 200 was returned', '');
+        }
+      }
+    };
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+  };
+;
+  })();</script><script type="text/javascript" id="__tmpScript-713757044" data-added-by-two-seven="1">(function() {
+    
+  window.triggerEvent = function (el, name, data, asString = false) {
+  if (window.twosevenScriptsDiv && data && typeof data === 'object') {
+    // We're in CS context
+    // We cannot send objects as part of event.detail
+    // Warn the user about this
+    console.warn(`WARNING: Attempting to send an object via event.detail from CS->Page does not work on Firefox: ${JSON.stringify(data)}`)
+    console.error(new Error().stack)
+  }
+  let detail
+  if (asString) {
+    detail = data
+  } else {
+    detail = { data }
+  }
+  var evt = new CustomEvent(name, { detail })
+  el.dispatchEvent(evt)
+}
+;
+  })();</script><script type="text/javascript" id="__tmpScript-669959011" data-added-by-two-seven="1">(function() {
+    window.postTo = async function postTo (targetWindow, data, expectResponse = false) {
+  // twosevenExtLog(tag, `Attempting to post to parent: ${JSON.stringify(data)}`)
+  data.name = data.name || name
+  let promise
+  if (expectResponse) {
+    promise = new Promise(resolve => {
+      const ackID = `ack-${data.action}-${((Math.random() * 1e9) | 0)}`
+      data.ack = {
+        event: ackID
+      }
+      const actions = ['play', 'pause', 'currentTime']
+      if (window.debug && actions.some(x => data.action.includes(x))) {
+        debugger
+      }
+      window.addEventListener('message', function once ({ data = {} }) {
+        if (data.action !== ackID) {
+          return
+        }
+        window.removeEventListener('message', once)
+        resolve(data.json)
+      })
+    })
+  } else {
+    promise = new Promise(resolve => resolve())
+  }
+  targetWindow.postMessage(data, '*')
+  return promise
+};
+  })();</script><script type="text/javascript" id="__tmpScript-3963695" data-added-by-two-seven="1">(function() {
+    window.postResponse = async function postResponse (e, json) {
+  const { source, data: { ack: { event } } } = e
+  postTo(source, {
+    action: event,
+    json
+  })
+};
+  })();</script><script type="text/javascript" id="__tmpScript-742128839" data-added-by-two-seven="1">(function() {
+    window.postToParent = async function postToParent (data, expectResponse = false) {
+  return postTo(window.parent, data, expectResponse)
+};
+  })();</script><script type="text/javascript" id="__tmpScript-339699255" data-added-by-two-seven="1">(function() {
+    window.postToTop = async function postToTop (data, expectResponse = false) {
+  return postTo(window.top, data, expectResponse)
+};
+  })();</script><script type="text/javascript" id="__tmpScript-2957191" data-added-by-two-seven="1">(function() {
+    
+  window.twoseven.getFromStorage = (key) => {
+  return new Promise((resolve, reject) => {
+    const evt = 'get-from-storage-' + (Math.random() * 1e9 | 0)
+    window.addEventListener(evt, (e) => {
+      window.removeEventListener(evt, this)
+      const { detail: { data: { value } } } = e
+      resolve(value)
+    })
+    triggerEvent(window, 'get-from-storage', {
+      key,
+      evt
+    })
+  })
+}
+  window.twoseven.saveToStorage = (dict) => {
+  triggerEvent(window, 'save-to-storage', dict)
+}
+;
+  })();</script><script type="text/javascript" id="__tmpScript-765116228" data-added-by-two-seven="1">(function() {
+    
+  function attachHistoryListeners () { // eslint-disable-line no-unused-vars
+  var pushState = history.pushState
+  history.pushState = function (state, unknown, uri) {
+    if (typeof history.onpushstate === 'function') {
+      history.onpushstate({ state })
+    }
+    triggerEvent(window, 'pushstate', { uri })
+    return pushState.apply(history, arguments)
+  }
+  var replaceState = history.replaceState
+  history.replaceState = function (state) {
+    if (typeof history.onreplacestate === 'function') {
+      history.onreplacestate({ state })
+    }
+    // triggerEvent(window, 'replacestate', state)
+    return replaceState.apply(history, arguments)
+  }
+}
+  attachHistoryListeners()
+;
+  })();</script><script type="text/javascript" id="__tmpScript-499439495" data-added-by-two-seven="1">(function() {
+    
+  window.twoseven.isOnTwoSevenTab = async () => {
+    const result = await postTo(window, { action: 'is-on-twoseven-tab' }, true)
+    return result
+  }
+;
+  })();</script><script type="text/javascript" id="__tmpScript-620601988" data-added-by-two-seven="1">(function() {
+    
+      const modal = document.querySelector('.twoseven-ext-tab-media-modal')
+      const modalCloseBtn = modal.querySelector('.close')
+      function closeModal () {
+        modal.style.display = 'none'
+        const frame = document.querySelector('#twoseven-ext-tab-media-iframe').contentWindow
+        frame.postMessage({
+          __evt_name: 'modal-hide'
+        }, '*')
+      }
+      modalCloseBtn.onclick = closeModal
+
+      window.onmessage = function (e) {
+        if (e.data.__evt_name === 'modal-hide') {
+          closeModal()
+        }
+      }
+
+      window.twoseven.closeTabMediaModal = closeModal
+
+      window.onclick = function (e) {
+        if (e.target.id === 'twoseven-ext-tab-media-modal' && modal.style.display === 'block') {
+            closeModal()
+        }
+      }
+    ;
+  })();</script></div>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <nav class="nav">
+        <a href="http://127.0.0.1:5500/index.html" class="current-page">Home</a>
+        <a href="http://127.0.0.1:5500/about.html">About</a>
+        <a href="http://127.0.0.1:5500/portfolio.html">Portfolio</a>
+        <a href="http://127.0.0.1:5500/contact.html">Contact</a>
+      </nav>
+    </header>
+    <section class="profile-info">
+      <div class="image">
+        <img src="Amado%20Guerrero_files/profile.html" alt="Profile Image" class="profile-image">
+      </div>
+      <div class="info">
+        <h2>Amado Guerrero</h2>
+        <h4>Digital Marketing Manager</h4>
+        <p>Pariatur do deserunt in aute. Voluptate laborum excepteur nisi pariatur dolore labore incididunt irure amet
+          amet minim qui ullamco laboris. Magna sunt mollit dolore dolor elit eiusmod minim voluptate. Veniam dolor
+          eiusmod aliquip quis sit aliqua. Magna consequat officia deserunt ex ea. Incididunt quis anim ipsum dolor
+          commodo labore.</p>
+      </div>
+    </section>
+    <section class="contact-skills-work-experience">
+      <section class="contact-skills-languages">
+        <div class="info">
+          <email>amado.s.guerrero@gmail.com</email>
+          <phone>786-259-5989</phone>
+          <city>Miami, FL</city>
+          <a href="https://amado-guerrero.me/" class="website">amado-guerrero.me</a>
+          <a href="https://www.linkedin.com/in/amado4884" class="linkedin">linkedin.com/in/amado4884</a>
+          <a href="https://twitter.com/AmadoSGuerrero" class="twitter">@AmadoSGuerrero</a>
+        </div>
+        <div class="skills">
+          <h3 class="section-header">Skills</h3>
+          <hr class="bar">
+          <email>amado.s.guerrero@gmail.com</email>
+          <phone>786-259-5989</phone>
+          <city>Miami, FL</city>
+          <a href="https://amado-guerrero.me/" class="website">amado-guerrero.me</a>
+          <a href="https://www.linkedin.com/in/amado4884" class="linkedin">linkedin.com/in/amado4884</a>
+          <a href="https://twitter.com/AmadoSGuerrero" class="twitter">@AmadoSGuerrero</a>
+        </div>
+        <div class="languages">
+          <h3 class="section-header">Languages</h3>
+          <hr class="bar">
+          <div class="english">
+            <span>English</span>
+            <p>(*) (*) (*) (*) (*)</p>
+          </div>
+          <div class="spanish">
+            <span>Spanish</span>
+            <p>(*) (*) (*) (*) ()</p>
+          </div>
+        </div>
+      </section>
+      <section class="work-experience">
+        <h3 class="section-header">Work Experience</h3>
+        <hr class="bar">
+        <div class="job">
+          <h3 class="subheader">Front End Developer</h3>
+          <h3>Dade Home Inspections</h3>
+          <div class="date-tasks-location">
+            <span class="date">05/2011 - Present</span>
+            <span class="achievements-tasks">Acheivements/Tasks</span>
+            <span class="location">Miami, FL</span>
+          </div>
+          <ul class="tasks">
+            <li class="task">Ad amet deserunt id cupidatat eiusmod occaecat esse eiusmod exercitation adipisicing duis.
+            </li>
+            <li class="task">Ad amet deserunt id cupidatat eiusmod occaecat esse eiusmod exercitation adipisicing duis.
+            </li>
+            <li class="task">Ad amet deserunt id cupidatat eiusmod occaecat esse eiusmod exercitation adipisicing duis.
+            </li>
+            <li class="task">Ad amet deserunt id cupidatat eiusmod occaecat esse eiusmod exercitation adipisicing duis.
+            </li>
+          </ul>
+          <p class="job-contact"><span class="contact-text">Contact:</span> John Walters - john@dadehomeinspections.com
+          </p>
+        </div>
+        <div class="job">
+          <h3 class="subheader">Home Inspector</h3>
+          <h3>Dade Home Inspections</h3>
+          <div class="date-tasks-location">
+            <span class="date">05/2011 - Present</span>
+            <span class="achievements-tasks">Acheivements/Tasks</span>
+            <span class="location">Miami, FL</span>
+          </div>
+          <ul class="tasks">
+            <li class="task">Ad amet deserunt id cupidatat eiusmod occaecat esse eiusmod exercitation adipisicing duis.
+            </li>
+            <li class="task">Ad amet deserunt id cupidatat eiusmod occaecat esse eiusmod exercitation adipisicing duis.
+            </li>
+            <li class="task">Ad amet deserunt id cupidatat eiusmod occaecat esse eiusmod exercitation adipisicing duis.
+            </li>
+            <li class="task">Ad amet deserunt id cupidatat eiusmod occaecat esse eiusmod exercitation adipisicing duis.
+            </li>
+          </ul>
+          <p class="job-contact"><span class="contact-text">Contact:</span> John Walters - john@dadehomeinspections.com
+          </p>
+        </div>
+      </section>
+      <section class="education">
+        <h3 class="section-header">Education</h3>
+        <hr class="bar">
+        <div class="edu">
+          <h3 class="subheader">Full Stack Web Development</h3>
+          <h3>Lambda School</h3>
+          <span class="date">04/2020 - 06/2021</span>
+        </div>
+      </section>
+      <section class="certificates">
+        <h3 class="section-header">Certificates</h3>
+        <hr class="bar">
+        <div class="certification">
+          <h3>Google Partners AdWords Certification</h3>
+          <p class="cert-text">Eiusmod enim amet deserunt esse minim laboris incididunt ea incididunt fugiat veniam
+            mollit.</p>
+        </div>
+        <div class="certification">
+          <h3>Online Digital Marketing Specialization</h3>
+          <p class="cert-text">Eiusmod enim amet deserunt esse minim laboris incididunt ea incididunt fugiat veniam
+            mollit.</p>
+        </div>
+      </section>
+      <section class="organizations">
+        <h3 class="section-header">Organizations</h3>
+        <hr class="bar">
+        <div class="organization">
+          <h3>Marketing Lab at Cop</h3>
+          <p class="cert-text">Eiusmod enim amet deserunt esse minim laboris incididunt ea incididunt fugiat veniam
+            mollit.</p>
+        </div>
+      </section>
+    </section>
+  </div>
+<!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+<div>
+    <div id="twoseven-ext-tab-media-modal" class="twoseven-ext-tab-media-modal" style="display: none;">
+      <!-- Modal content -->
+      <div class="twoseven-ext-tab-media-modal-content">
+        <div class="iframe-container" style="height: 100%; width: 100%;">
+          <span class="close">×</span>
+        </div>
+      </div>
+    </div></div></body></html>

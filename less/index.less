@@ -4,19 +4,87 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -24,25 +92,44 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
 	display: block;
 }
+
 body {
 	line-height: 1;
 }
-ol, ul {
+
+ol,
+ul {
 	list-style: none;
 }
-blockquote, q {
+
+blockquote,
+q {
 	quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -50,10 +137,188 @@ table {
 
 /* Set every element's box-sizing to border-box */
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
+html,
+body {
+	height: 100%;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
 }
 
+html {
+	font-size: 62.5%;
+}
+
+// -----------------------------------------------------------------------
+@primaryColor: #2EB2AE;
+@defaultTextSize: 1.5rem;
+
+h1 {
+	font-size: 4rem;
+}
+
+h2 {
+	font-size: 3.5rem;
+}
+
+h3 {
+	font-size: 2.5rem;
+}
+
+h4 {
+	font-size: 2.2rem;
+}
+
+p,
+span,
+li,
+a {
+	font-size: @defaultTextSize;
+	line-height: 2rem;
+	;
+}
+
+div.container {
+	width: 80rem;
+	margin: 0 auto;
+}
+
+header.header {
+	nav.nav {
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	nav.nav a {
+		text-decoration: none;
+		padding: 2rem;
+		color: black;
+	}
+}
+
+section.profile-info {
+	display: flex;
+
+	div.image {
+		img {
+			width: 20rem;
+			height: 20rem;
+			clip-path: circle(10rem at center);
+		}
+	}
+
+	div.info {
+		background-color: @primaryColor;
+		height: 20rem;
+		color: white;
+		margin-left: 1.5rem;
+
+		* {
+			margin: 1rem;
+		}
+
+		h4 {
+			margin-bottom: 2rem;
+			text-decoration: underline;
+			line-height: 2rem;
+		}
+
+	}
+}
+
+section.contact-skills-work-experience {
+	display: flex;
+	justify-content: flex-start;
+
+	section.contact-skills-languages {
+		display: flex;
+		flex-direction: column;
+		width: 20rem;
+
+		div.info,
+		div.skills,
+		div.languages {
+			display: flex;
+			flex-direction: column;
+		}
+
+		div.info {
+			padding-top: 2rem;
+			font-size: @defaultTextSize;
+			line-height: 2rem;
+		}
+
+
+
+	}
+
+	section.history {
+		display: flex;
+		flex-direction: column;
+		padding-left: 1.5rem;
+
+		// General styling
+
+		*:not(div) {
+			padding-left: 1rem;
+		}
+
+		span {
+			color: @primaryColor;
+		}
+
+		span.italic {
+			font-style: italic;
+		}
+
+		hr {
+			color: @primaryColor;
+			padding: 0;
+			margin: .2rem 0 .75rem 0;
+		}
+
+		h3.section-header,
+		h4.subheader {
+			color: @primaryColor;
+			font-weight: bold;
+		}
+
+		h3.section-header {
+			text-transform: uppercase;
+			line-height: 2rem;
+			padding-top: 1.5rem;
+		}
+
+		h4 {
+			margin: 1rem 0;
+		}
+
+		div.job {
+
+			margin-bottom: 2rem;
+
+			div.date-location {
+				display: flex;
+				justify-content: space-between;
+				padding-bottom: 1rem;
+			}
+
+			div.tasks {
+				span.italic {
+					margin: .5rem;
+				}
+
+				ul.tasks-list li:before {
+					content: '\2734';
+					color: @primaryColor;
+					margin-right: 10px;
+				}
+			}
+		}
+
+
+
+	}
+}

@@ -1,1 +1,263 @@
-/* Compile your LESS file! */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* Set every element's box-sizing to border-box */
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+html {
+  font-size: 62.5%;
+}
+h1 {
+  font-size: 4rem;
+}
+h2 {
+  font-size: 3.5rem;
+}
+h3 {
+  font-size: 2.5rem;
+}
+h4 {
+  font-size: 2.2rem;
+}
+p,
+span,
+li,
+a {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+div.container {
+  width: 80rem;
+  margin: 0 auto;
+}
+header.header nav.nav {
+  display: flex;
+  justify-content: flex-end;
+}
+header.header nav.nav a {
+  text-decoration: none;
+  padding: 2rem;
+  color: black;
+}
+section.profile-info {
+  display: flex;
+}
+section.profile-info div.image img {
+  width: 20rem;
+  height: 20rem;
+  clip-path: circle(10rem at center);
+}
+section.profile-info div.info {
+  background-color: #2EB2AE;
+  height: 20rem;
+  color: white;
+  margin-left: 1.5rem;
+}
+section.profile-info div.info * {
+  margin: 1rem;
+}
+section.profile-info div.info h4 {
+  margin-bottom: 2rem;
+  text-decoration: underline;
+  line-height: 2rem;
+}
+section.contact-skills-work-experience {
+  display: flex;
+  justify-content: flex-start;
+}
+section.contact-skills-work-experience section.contact-skills-languages {
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+}
+section.contact-skills-work-experience section.contact-skills-languages div.info,
+section.contact-skills-work-experience section.contact-skills-languages div.skills,
+section.contact-skills-work-experience section.contact-skills-languages div.languages {
+  display: flex;
+  flex-direction: column;
+}
+section.contact-skills-work-experience section.contact-skills-languages div.info {
+  padding-top: 2rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+section.contact-skills-work-experience section.history {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1.5rem;
+}
+section.contact-skills-work-experience section.history *:not(div) {
+  padding-left: 1rem;
+}
+section.contact-skills-work-experience section.history span {
+  color: #2EB2AE;
+}
+section.contact-skills-work-experience section.history span.italic {
+  font-style: italic;
+}
+section.contact-skills-work-experience section.history hr {
+  color: #2EB2AE;
+  padding: 0;
+  margin: 0.2rem 0 0.75rem 0;
+}
+section.contact-skills-work-experience section.history h3.section-header,
+section.contact-skills-work-experience section.history h4.subheader {
+  color: #2EB2AE;
+  font-weight: bold;
+}
+section.contact-skills-work-experience section.history h3.section-header {
+  text-transform: uppercase;
+  line-height: 2rem;
+  padding-top: 1.5rem;
+}
+section.contact-skills-work-experience section.history h4 {
+  margin: 1rem 0;
+}
+section.contact-skills-work-experience section.history div.job {
+  margin-bottom: 2rem;
+}
+section.contact-skills-work-experience section.history div.job div.date-location {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+}
+section.contact-skills-work-experience section.history div.job div.tasks span.italic {
+  margin: 0.5rem;
+}
+section.contact-skills-work-experience section.history div.job div.tasks ul.tasks-list li:before {
+  content: '\2734';
+  color: #2EB2AE;
+  margin-right: 10px;
+}
