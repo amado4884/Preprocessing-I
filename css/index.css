@@ -160,11 +160,11 @@ a {
 }
 h3.section-header,
 h4.subheader {
-  color: #2EB2AE;
+  color: #2eb2ae;
   font-weight: bold;
 }
 h4.subheader {
-  color: #30b22e;
+  color: #b22e32;
 }
 h3.section-header {
   text-transform: uppercase;
@@ -173,124 +173,200 @@ h3.section-header {
   padding-top: 1.5rem;
 }
 hr {
-  color: #2EB2AE;
+  color: #2eb2ae;
   padding: 0;
   margin: 0.2rem 0 0.75rem 0;
+}
+span.circle {
+  background-color: #2eb2ae;
+  border-radius: 50%;
+  display: inline-block;
+  border-width: 2px;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 0.5rem;
+}
+span.circle span.dot {
+  background-color: #95e4e1;
+  border-radius: 50%;
+  display: inline-block;
+  width: 1.7rem;
+  height: 1.7rem;
+  position: relative;
+  left: 0.4rem;
+  top: 0.4rem;
+}
+span.circle span.empty {
+  background-color: lightgray;
 }
 div.container {
   width: 90rem;
   margin: 0 auto;
+  background-color: #FCFCFC;
 }
-header.header nav.nav {
+@media (max-width: 900px) {
+  div.container {
+    width: 700px;
+  }
+}
+div.container header.header nav.nav {
   display: flex;
+  flex-direction: row;
   justify-content: flex-end;
+  align-content: center;
 }
-header.header nav.nav a {
+div.container header.header nav.nav a {
   text-decoration: none;
   padding: 2rem;
   color: black;
 }
-section.profile-info {
+div.container section.profile-info {
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
 }
-section.profile-info div.image img {
+div.container section.profile-info div.image img {
   width: 25rem;
   height: 25rem;
   clip-path: circle(10rem at center);
 }
-section.profile-info div.info {
-  background-color: #2EB2AE;
+div.container section.profile-info div.info {
+  background-color: #2eb2ae;
   height: 25rem;
   color: white;
   margin-left: 1.5rem;
 }
-section.profile-info div.info * {
+div.container section.profile-info div.info * {
   margin: 1rem;
 }
-section.profile-info div.info h4 {
+div.container section.profile-info div.info h4 {
   margin-bottom: 2rem;
   text-decoration: underline;
   line-height: 2rem;
 }
-section.contact-skills-work-experience {
+div.container section.profile-info div.info p {
+  line-height: 3rem;
+}
+div.container section.contact-skills-work-experience {
   display: flex;
+  flex-direction: row;
   justify-content: flex-start;
+  align-content: center;
 }
-section.contact-skills-work-experience section.contact-skills-languages {
+div.container section.contact-skills-work-experience section.contact-skills-languages {
   display: flex;
   flex-direction: column;
-  width: 25rem;
+  justify-content: center;
+  align-content: center;
+  width: 31rem;
 }
-section.contact-skills-work-experience section.contact-skills-languages div.info,
-section.contact-skills-work-experience section.contact-skills-languages div.skills,
-section.contact-skills-work-experience section.contact-skills-languages div.languages {
+div.container section.contact-skills-work-experience section.contact-skills-languages div.info,
+div.container section.contact-skills-work-experience section.contact-skills-languages div.skills,
+div.container section.contact-skills-work-experience section.contact-skills-languages div.languages {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-content: center;
 }
-section.contact-skills-work-experience section.contact-skills-languages div.info {
+div.container section.contact-skills-work-experience section.contact-skills-languages div.info {
   padding: 2rem 0;
   font-size: 1.5rem;
   line-height: 2rem;
 }
-section.contact-skills-work-experience section.contact-skills-languages div.info div {
-  margin-bottom: 2rem;
+div.container section.contact-skills-work-experience section.contact-skills-languages div.info div {
+  margin-bottom: 4rem;
 }
-section.contact-skills-work-experience section.contact-skills-languages div.info div a {
+div.container section.contact-skills-work-experience section.contact-skills-languages div.info div span {
+  color: #b22e32;
+}
+div.container section.contact-skills-work-experience section.contact-skills-languages div.info div a {
   text-decoration: none;
-  color: #30b22e;
+  color: #b22e32;
   font-weight: 400;
 }
-section.contact-skills-work-experience section.contact-skills-languages div.info div i.fa {
+div.container section.contact-skills-work-experience section.contact-skills-languages div.info div i.fa {
   margin-right: 1rem;
-  color: #2EB2AE;
+  color: #2eb2ae;
 }
-section.contact-skills-work-experience section.contact-skills-languages div.skills div {
+div.container section.contact-skills-work-experience section.contact-skills-languages div.skills {
+  padding-bottom: 1rem;
+}
+div.container section.contact-skills-work-experience section.contact-skills-languages div.skills div {
   padding-bottom: 1.5rem;
 }
-section.contact-skills-work-experience section.contact-skills-languages div.skills div p {
-  color: #30b22e;
+div.container section.contact-skills-work-experience section.contact-skills-languages div.skills div p {
+  color: black;
   font-weight: 400;
   font-size: 1.75rem;
   padding-bottom: 0.5rem;
 }
-section.contact-skills-work-experience section.contact-skills-languages div.skills div progress {
+div.container section.contact-skills-work-experience section.contact-skills-languages div.skills div progress {
   width: 100%;
   height: 2rem;
-  background-color: #2EB2AE;
-  color: #30b22e;
+  background-color: #2eb2ae;
+  color: #9e292c;
   border-radius: 0.2rem;
   box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.25) inset;
 }
-section.contact-skills-work-experience section.history {
+div.container section.contact-skills-work-experience section.contact-skills-languages div.languages div {
+  padding-bottom: 2rem;
+}
+div.container section.contact-skills-work-experience section.contact-skills-languages div.languages div p.language {
+  font-size: 1.75rem;
+  font-weight: 400;
+  padding: 2rem 2rem 1rem 0;
+}
+div.container section.contact-skills-work-experience section.history {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-content: center;
   padding-left: 1.5rem;
 }
-section.contact-skills-work-experience section.history *:not(div) {
+div.container section.contact-skills-work-experience section.history *:not(div) {
   padding-left: 1rem;
 }
-section.contact-skills-work-experience section.history span {
-  color: #2EB2AE;
+div.container section.contact-skills-work-experience section.history span {
+  color: #2eb2ae;
 }
-section.contact-skills-work-experience section.history span.italic {
+div.container section.contact-skills-work-experience section.history span.italic,
+div.container section.contact-skills-work-experience section.history p.italic {
   font-style: italic;
 }
-section.contact-skills-work-experience section.history h4 {
+div.container section.contact-skills-work-experience section.history h4 {
   margin: 1rem 0;
 }
-section.contact-skills-work-experience section.history div.job {
+div.container section.contact-skills-work-experience section.history div.job {
   margin-bottom: 2rem;
 }
-section.contact-skills-work-experience section.history div.job div.date-location {
+div.container section.contact-skills-work-experience section.history div.job div.date-location {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
+  align-content: center;
   padding-bottom: 1rem;
 }
-section.contact-skills-work-experience section.history div.job div.tasks span.italic {
+div.container section.contact-skills-work-experience section.history div.job div.tasks span.italic {
   margin: 0.5rem;
 }
-section.contact-skills-work-experience section.history div.job div.tasks ul.tasks-list li:before {
+div.container section.contact-skills-work-experience section.history div.job div.tasks ul.tasks-list li:before {
   content: '\2734';
-  color: #2EB2AE;
+  color: #2eb2ae;
   margin-right: 10px;
+}
+div.container section.contact-skills-work-experience section.history div.edu div.edu-name {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+}
+div.container section.contact-skills-work-experience section.history div.edu div.edu-name span {
+  align-self: flex-end;
+}
+div.container section.contact-skills-work-experience section.certificates h4 {
+  color: #b22e32;
+}
+div.container section.contact-skills-work-experience section.licenses h4 {
+  color: #b22e32;
 }
