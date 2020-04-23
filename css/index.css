@@ -119,7 +119,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: '';
+  content: "";
   content: none;
 }
 table {
@@ -133,7 +133,7 @@ table {
 html,
 body {
   height: 100%;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 300;
 }
 html {
@@ -202,11 +202,21 @@ span.circle span.empty {
 div.container {
   width: 90rem;
   margin: 0 auto;
-  background-color: #FCFCFC;
+  background-color: #fcfcfc;
 }
 @media (max-width: 900px) {
   div.container {
     width: 700px;
+  }
+}
+@media (max-width: 700px) {
+  div.container {
+    width: 500px;
+  }
+}
+@media (max-width: 500px) {
+  div.container {
+    width: 300px;
   }
 }
 div.container header.header nav.nav {
@@ -226,6 +236,14 @@ div.container section.profile-info {
   justify-content: center;
   align-content: center;
 }
+@media (max-width: 500px) {
+  div.container section.profile-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+  }
+}
 div.container section.profile-info div.image img {
   width: 25rem;
   height: 25rem;
@@ -236,6 +254,11 @@ div.container section.profile-info div.info {
   height: 25rem;
   color: white;
   margin-left: 1.5rem;
+}
+@media (max-width: 700px) {
+  div.container section.profile-info div.info {
+    height: 40rem;
+  }
 }
 div.container section.profile-info div.info * {
   margin: 1rem;
@@ -248,11 +271,29 @@ div.container section.profile-info div.info h4 {
 div.container section.profile-info div.info p {
   line-height: 3rem;
 }
+@media (max-width: 900px) {
+  div.container section.profile-info div.info p {
+    line-height: 2rem;
+  }
+}
+@media (max-width: 700px) {
+  div.container section.profile-info div.info p {
+    line-height: 2rem;
+  }
+}
 div.container section.contact-skills-work-experience {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-content: center;
+}
+@media (max-width: 500px) {
+  div.container section.contact-skills-work-experience {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+  }
 }
 div.container section.contact-skills-work-experience section.contact-skills-languages {
   display: flex;
@@ -351,7 +392,7 @@ div.container section.contact-skills-work-experience section.history div.job div
   margin: 0.5rem;
 }
 div.container section.contact-skills-work-experience section.history div.job div.tasks ul.tasks-list li:before {
-  content: '\2734';
+  content: "\2734";
   color: #2eb2ae;
   margin-right: 10px;
 }
